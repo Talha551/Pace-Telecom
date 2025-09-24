@@ -80,7 +80,7 @@
         <div class="mouse-cursor cursor-outer"></div>
         <div class="mouse-cursor cursor-inner"></div>
 
-       <!-- Offcanvas Area Start -->
+        <!-- Offcanvas Area Start -->
 <div class="fix-area">
     <div class="offcanvas__info">
         <div class="offcanvas__wrapper">
@@ -157,7 +157,9 @@
 </div>
 <div class="offcanvas__overlay"></div>
 
-        
+
+
+
 <style>
  /* --- Mega Menu --- */
      /* --- Mega Menu --- */
@@ -477,163 +479,438 @@ Call Center / IP Whitelisting</p></div>
             });
         });
     </script>
+
+ <style>
+        /* Basic Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        p { font-size: 1rem; }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-hero {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.1rem;
+            padding: 15px 35px;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-hero:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: #2c3e50;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #34495e;
+        }
+
         
-    
-    <!-- Search Area Start -->
-    <div class="search-wrap">
-        <div class="search-inner">
-            <i class="fas fa-times search-close" id="search-close"></i>
-            <div class="search-cell">
-                <form method="get">
-                    <div class="search-field-holder">
-                        <input type="search" class="main-search-input" placeholder="Search...">
-                    </div>
-                </form>
+        /* Hero Section */
+        .hero {
+             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("assets/img/banner/fixed.png") no-repeat center center/cover;
+            color: #353131;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color:#f4f7f9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background-color: #f9f9f9;
+        }
+
+        .benefits .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            flex-basis: 22%;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-card i {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 10px;
+        }
+
+        /* Packages Section */
+        .packages .package-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .package-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            flex-basis: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .package-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .package-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .package-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .package-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .package-card li {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .package-card li i {
+            color: #28a745;
+            margin-right: 10px;
+        }
+
+        /* Features Section */
+        .features .feature-content {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            border-left: 5px solid #007bff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            flex-basis: 45%;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .feature-card i {
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        /* How It Works Section */
+        .how-it-works .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .step-card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .step-card i {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .step-card h4 {
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+            }
+
+            .nav {
+                margin-top: 20px;
+            }
+            
+            .nav a:not(.btn) {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .benefits .container,
+            .packages .package-cards,
+            .features .feature-content,
+            .how-it-works .steps-grid {
+                flex-direction: column;
+            }
+
+            .benefit-card,
+            .package-card,
+            .feature-card,
+            .step-card {
+                flex-basis: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Pace Fixed Line: Crystal-Clear Voice, Unbeatable Connectivity</h1>
+            <p>Your landline, evolved. Experience superior voice calls with Pace Fixed Line.</p>
+            <a href="#packages" class="btn btn-hero">Check Plans & Packages</a>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="benefit-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile App Integration</h3>
+                <p>Take your landline calls on your smartphone using the Pace app.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-phone-volume"></i>
+                <h3>Free Pace-to-Pace Calls</h3>
+                <p>Enjoy unlimited, HD voice calls to any other Pace fixed-line user.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-globe"></i>
+                <h3>Affordable International Calls</h3>
+                <p>Stay connected with loved ones abroad at low international rates.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-microphone"></i>
+                <h3>Crystal-Clear Voice</h3>
+                <p>Experience superior call quality with our advanced fiber optic network.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-        <!--<< Breadcrumb Section Start >>-->
-        <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('assets/img/banner/fixed.png');">
-            <div class="container">
-                <div class="page-heading">
-                    <h1 class="wow fadeInUp" data-wow-delay=".3s">Contact Us</h1>
-                    <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                        <li>
-                            <a href="index.html">
-                            Home Page
-                            </a>
-                        </li>
-                        <li>
-                            <i class="fal fa-minus"></i>
-                        </li>
-                        <li>
-                            Contact Us
-                        </li>
+    <section id="packages" class="packages">
+        <div class="container">
+            <h2 class="section-title">Choose Your Perfect Plan</h2>
+            <div class="package-cards">
+                <div class="package-card">
+                    <h3>Pace Voice Essential</h3>
+                    <p class="price">Rs. 500<span>/month</span></p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 700 Minutes Included</li>
+                        <li><i class="fas fa-check-circle"></i> Unlimited Pace-to-Pace Calls</li>
+                        <li><i class="fas fa-check-circle"></i> Mobile App Support</li>
+                        <li><i class="fas fa-check-circle"></i> HD Voice Quality</li>
                     </ul>
+                    <a href="contact.html" class="btn btn-secondary">Order Now</a>
+                </div>
+                <div class="package-card">
+                    <h3>Pace Voice Unlimited</h3>
+                    <p class="price">Rs. 800<span>/month</span></p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Unlimited Local & National Calls</li>
+                        <li><i class="fas fa-check-circle"></i> Unlimited Pace-to-Pace Calls</li>
+                        <li><i class="fas fa-check-circle"></i> Mobile App Support</li>
+                        <li><i class="fas fa-check-circle"></i> HD Voice Quality</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Order Now</a>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!--<< Contact Section Start >>-->
-<section class="contact-main-area fix section-padding">
-    <div class="container">
-        <div class="contact-main-wrapper">
-            <div class="row g-4">
-                <!-- Contact Info -->
-                <div class="col-lg-6">
-                    <div class="contact-content">
-                        <div class="section-title mb-2">
-                            <span class="wow fadeInUp">Get In Touch</span>
-                            <h2 class="wow fadeInUp" data-wow-delay=".3s">Contact Us</h2>
-                        </div>
-                        <p class="mt-4 mt-md-0 wow fadeInUp" data-wow-delay=".4s">
-                            Whether you're a startup, enterprise, or community organization, PACE TEL is here to support your connectivity and IT needs with reliable service and expert guidance.
-                        </p>
-                        <div class="row g-4 mt-3">
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="info-items">
-                                    <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                                    <div class="content">
-                                        <h5>Location</h5>
-                                        <p>
-                                            Office 01, Zoom Petrol Pump Building, <br>
-                                            Main Jinnah Road, Banigala, Islamabad, Pakistan
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="info-items">
-                                    <div class="icon"><i class="far fa-phone"></i></div>
-                                    <div class="content">
-                                        <h5>Phone</h5>
-                                        <a href="tel:+92516045000">+92-51-604-5000</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".7s">
-                                <div class="info-items">
-                                    <div class="icon"><i class="fal fa-envelope"></i></div>
-                                    <div class="content">
-                                        <h5>Email</h5>
-                                        <a href="mailto:info@pace-tel.com" class="link">info@pace-tel.com</a><br>
-                                        <!-- <a href="mailto:maqsoodwazir@gmail.com" class="link">maqsoodwazir@gmail.com</a> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".9s">
-                                <div class="info-items">
-                                    <div class="icon"><i class="fad fa-share-alt"></i></div>
-                                    <div class="content">
-                                        <h5>Social</h5>
-                                        <div class="social-icon d-flex align-items-center">
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-image wow fadeInUp" data-wow-delay=".4s">
-                            <img src="assets/img/logo/PaceTelecom-logo.png" alt="img">
-                        </div>
-                    </div>
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">More Than Just a Landline</h2>
+            <div class="feature-content">
+                <div class="feature-card">
+                    <h3><i class="fas fa-briefcase"></i> Business Solutions</h3>
+                    <p>Streamline your business communication with our professional cloud-based PBX, UAN numbers, and more.</p>
                 </div>
-
-                <!-- Contact Form -->
-                <div class="col-lg-6 mt-5 mt-lg-0">
-                    <div class="contact-form-items">
-                        <div class="contact-title">
-                            <h3 class="wow fadeInUp" data-wow-delay=".3s">Fill Up The Form</h3>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">Your email address will not be published. Required fields are marked *</p>
-                        </div>
-                        <form action="contact.php" id="contact-form" method="POST">
-                            <div class="row g-4">
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="form-clt">
-                                        <input type="text" name="name" id="name" placeholder="Your Name*">
-                                        <div class="icon"><i class="fal fa-user"></i></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="form-clt">
-                                        <input type="email" name="email" id="email" placeholder="Email Address*">
-                                        <div class="icon"><i class="fal fa-envelope"></i></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".7s">
-                                    <div class="form-clt">
-                                        <textarea name="message" id="message" placeholder="Enter Your Message Here"></textarea>
-                                        <div class="icon"><i class="fal fa-edit"></i></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".8s">
-                                    <button type="submit" class="theme-btn">
-                                        <span><i class="fal fa-paper-plane"></i>Get In Touch</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-home"></i> Residential Features</h3>
+                    <p>Enjoy features like call forwarding, voicemail, and easy setup with our smartphone app.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-        <!--<< Map Section Start >>-->
-        <div class="map-section">
-            <div class="google-map wow fadeInUp" data-wow-delay=".7s">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6678.7619084840835!2d144.9618311901502!3d-37.81450084255415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b4758afc1d%3A0x3119cc820fdfc62e!2sEnvato!5e0!3m2!1sen!2sbd!4v1641984054261!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Get Connected in 3 Simple Steps</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>1. Check Coverage</h4>
+                    <p>Call us or fill out our form to see if Pace Fixed Line is available in your area.</p>
+                </div>
+                <div class="step-card">
+                    <i class="fas fa-tasks"></i>
+                    <h4>2. Choose Your Plan</h4>
+                    <p>Select a package that perfectly fits your home or business needs.</p>
+                </div>
+                <div class="step-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>3. Get Connected</h4>
+                    <p>Our team will set up the service and you'll be ready to make calls instantly.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-                  <!--<< Footer Section Start >>-->
-<footer class="footer-section section-bg-3">
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Upgrade Your Communication?</h2>
+            <p>Join thousands of satisfied customers and get the best fixed-line service in Pakistan.</p>
+            <a href="contact.html" class="btn btn-hero">Contact Us Today</a>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+  <footer class="footer-section section-bg-3">
     <div class="container">
         <div class="footer-widgets-wrapper">
             <div class="row">
@@ -783,9 +1060,7 @@ Call Center / IP Whitelisting</p></div>
         <script src="assets/js/wow.min.js"></script>
         <!--<< Circle Progress Js >>-->
         <script src="assets/js/circle-progress.js"></script>
-        <!--<< Ajax-Mail.js >>-->
-        <script src="assets/js/ajax-mail.js"></script>
-        <!--Main Js-->
+        <!--<< Main.js >>-->
         <script src="assets/js/main.js"></script>
     </body>
 </html>

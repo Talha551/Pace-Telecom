@@ -80,7 +80,7 @@
         <div class="mouse-cursor cursor-outer"></div>
         <div class="mouse-cursor cursor-inner"></div>
 
-       <!-- Offcanvas Area Start -->
+        <!-- Offcanvas Area Start -->
 <div class="fix-area">
     <div class="offcanvas__info">
         <div class="offcanvas__wrapper">
@@ -157,7 +157,9 @@
 </div>
 <div class="offcanvas__overlay"></div>
 
-        
+
+
+
 <style>
  /* --- Mega Menu --- */
      /* --- Mega Menu --- */
@@ -477,163 +479,580 @@ Call Center / IP Whitelisting</p></div>
             });
         });
     </script>
-        
+
+ <title>Pace Fiber: Pure Fiber Internet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Search Area Start -->
-    <div class="search-wrap">
-        <div class="search-inner">
-            <i class="fas fa-times search-close" id="search-close"></i>
-            <div class="search-cell">
-                <form method="get">
-                    <div class="search-field-holder">
-                        <input type="search" class="main-search-input" placeholder="Search...">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    <style>
+        /* General Body and Container Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 0;
+        }
 
-        <!--<< Breadcrumb Section Start >>-->
-        <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('assets/img/banner/fixed.png');">
-            <div class="container">
-                <div class="page-heading">
-                    <h1 class="wow fadeInUp" data-wow-delay=".3s">Contact Us</h1>
-                    <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                        <li>
-                            <a href="index.html">
-                            Home Page
-                            </a>
-                        </li>
-                        <li>
-                            <i class="fal fa-minus"></i>
-                        </li>
-                        <li>
-                            Contact Us
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        <!--<< Contact Section Start >>-->
-<section class="contact-main-area fix section-padding">
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        p { font-size: 1rem; }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-hero {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.1rem;
+            padding: 15px 35px;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-hero:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: #2c3e50;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #34495e;
+        }
+
+        /* Hero Section with Overlay */
+        .hero {
+             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("assets/img/banner/fixed.png") no-repeat center center/cover;
+            color: #353131;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #fff;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        /* All Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+      /* New Why Choose Section Styles */
+        #why-choose {
+            background-color: #f4f7f9;
+            padding: 80px 0;
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .why-choose-intro {
+            padding: 40px;
+            background-image: linear-gradient(rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.8)), url('https://images.unsplash.com/photo-1547844111-d1b46a36283b?fit=crop&w=600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .why-choose-intro h2 {
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .why-choose-intro p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .why-choose-benefits {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background-color: #e6f2ff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .benefit-icon i {
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+
+        .benefit-text h3 {
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .benefit-text p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .why-choose-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .why-choose-intro h2 {
+                font-size: 2rem;
+            }
+        }
+        /* Packages Section */
+        .packages .package-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .package-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            flex-basis: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .package-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .package-card .best-for {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .package-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .package-card li {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .package-card li i {
+            color: #28a745;
+            margin-right: 10px;
+        }
+
+        /* Value-Added Services Section */
+        .services .service-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            flex-basis: 30%;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        /* How It Works Section */
+        .how-it-works .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .step-card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .step-card i {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .step-card h4 {
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 20px;
+            padding: 20px 0;
+        }
+        
+        .testimonial-item {
+            flex-shrink: 0;
+            width: 100%;
+            scroll-snap-align: center;
+        }
+
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card i {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .why-choose .container,
+            .packages .package-cards,
+            .services .service-cards,
+            .how-it-works .steps-grid {
+                flex-direction: column;
+            }
+
+            .why-choose-card,
+            .package-card,
+            .service-card,
+            .step-card {
+                flex-basis: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Pace Fiber: Unleash the Power of Pure Fiber Internet.</h1>
+            <p>Experience lightning-fast speeds, lag-free gaming, and buffer-free streaming. Your ultimate online experience starts here.</p>
+            <a href="#packages" class="btn btn-hero">Explore Plans & Features</a>
+        </div>
+    </section>
+
+    <section id="why-choose" class="why-choose">
     <div class="container">
-        <div class="contact-main-wrapper">
-            <div class="row g-4">
-                <!-- Contact Info -->
-                <div class="col-lg-6">
-                    <div class="contact-content">
-                        <div class="section-title mb-2">
-                            <span class="wow fadeInUp">Get In Touch</span>
-                            <h2 class="wow fadeInUp" data-wow-delay=".3s">Contact Us</h2>
-                        </div>
-                        <p class="mt-4 mt-md-0 wow fadeInUp" data-wow-delay=".4s">
-                            Whether you're a startup, enterprise, or community organization, PACE TEL is here to support your connectivity and IT needs with reliable service and expert guidance.
-                        </p>
-                        <div class="row g-4 mt-3">
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="info-items">
-                                    <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                                    <div class="content">
-                                        <h5>Location</h5>
-                                        <p>
-                                            Office 01, Zoom Petrol Pump Building, <br>
-                                            Main Jinnah Road, Banigala, Islamabad, Pakistan
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="info-items">
-                                    <div class="icon"><i class="far fa-phone"></i></div>
-                                    <div class="content">
-                                        <h5>Phone</h5>
-                                        <a href="tel:+92516045000">+92-51-604-5000</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".7s">
-                                <div class="info-items">
-                                    <div class="icon"><i class="fal fa-envelope"></i></div>
-                                    <div class="content">
-                                        <h5>Email</h5>
-                                        <a href="mailto:info@pace-tel.com" class="link">info@pace-tel.com</a><br>
-                                        <!-- <a href="mailto:maqsoodwazir@gmail.com" class="link">maqsoodwazir@gmail.com</a> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".9s">
-                                <div class="info-items">
-                                    <div class="icon"><i class="fad fa-share-alt"></i></div>
-                                    <div class="content">
-                                        <h5>Social</h5>
-                                        <div class="social-icon d-flex align-items-center">
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-image wow fadeInUp" data-wow-delay=".4s">
-                            <img src="assets/img/logo/PaceTelecom-logo.png" alt="img">
-                        </div>
+        <div class="why-choose-grid">
+            <div class="why-choose-intro">
+                <h2>Why Choose Pace Fiber?</h2>
+                <p>We don't just provide internet; we provide the ultimate online experience, powered by pure fiber.</p>
+            </div>
+            <div class="why-choose-benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="benefit-text">
+                        <h3>Blazing-Fast Speeds</h3>
+                        <p>Symmetrical download and upload speeds up to 100 Mbps for all your needs.</p>
                     </div>
                 </div>
-
-                <!-- Contact Form -->
-                <div class="col-lg-6 mt-5 mt-lg-0">
-                    <div class="contact-form-items">
-                        <div class="contact-title">
-                            <h3 class="wow fadeInUp" data-wow-delay=".3s">Fill Up The Form</h3>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">Your email address will not be published. Required fields are marked *</p>
-                        </div>
-                        <form action="contact.php" id="contact-form" method="POST">
-                            <div class="row g-4">
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="form-clt">
-                                        <input type="text" name="name" id="name" placeholder="Your Name*">
-                                        <div class="icon"><i class="fal fa-user"></i></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="form-clt">
-                                        <input type="email" name="email" id="email" placeholder="Email Address*">
-                                        <div class="icon"><i class="fal fa-envelope"></i></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".7s">
-                                    <div class="form-clt">
-                                        <textarea name="message" id="message" placeholder="Enter Your Message Here"></textarea>
-                                        <div class="icon"><i class="fal fa-edit"></i></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".8s">
-                                    <button type="submit" class="theme-btn">
-                                        <span><i class="fal fa-paper-plane"></i>Get In Touch</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-gamepad"></i></div>
+                    <div class="benefit-text">
+                        <h3>Ultra-Low Latency</h3>
+                        <p>A pure fiber connection means a superior experience for gaming and video calls.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-lock"></i></div>
+                    <div class="benefit-text">
+                        <h3>Unmatched Reliability</h3>
+                        <p>A stable, consistent connection unaffected by weather or interference.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-users-cog"></i></div>
+                    <div class="benefit-text">
+                        <h3>Power Multiple Devices</h3>
+                        <p>Connect everyone and everything in your home simultaneously without a drop in performance.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
 
-
-        <!--<< Map Section Start >>-->
-        <div class="map-section">
-            <div class="google-map wow fadeInUp" data-wow-delay=".7s">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6678.7619084840835!2d144.9618311901502!3d-37.81450084255415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b4758afc1d%3A0x3119cc820fdfc62e!2sEnvato!5e0!3m2!1sen!2sbd!4v1641984054261!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <section id="packages" class="packages">
+        <div class="container">
+            <h2 class="section-title">Find the Perfect Plan for Your Home or Business</h2>
+            <div class="package-cards">
+                <div class="package-card">
+                    <h3>Pace Fiber 20</h3>
+                    <p class="best-for">Best for: Standard streaming & browsing</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 20 Mbps Symmetrical Speed</li>
+                        <li><i class="fas fa-check-circle"></i> Unlimited Data</li>
+                        <li><i class="fas fa-check-circle"></i> Free Wi-Fi Router</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 Technical Support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Get a Quote</a>
+                </div>
+                <div class="package-card">
+                    <h3>Pace Fiber 50</h3>
+                    <p class="best-for">Best for: HD streaming & online gaming</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 50 Mbps Symmetrical Speed</li>
+                        <li><i class="fas fa-check-circle"></i> Unlimited Data</li>
+                        <li><i class="fas fa-check-circle"></i> Free Wi-Fi Router</li>
+                        <li><i class="fas fa-check-circle"></i> Priority Support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Get a Quote</a>
+                </div>
+                <div class="package-card">
+                    <h3>Pace Fiber 100</h3>
+                    <p class="best-for">Best for: 4K streaming & professional work</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 100 Mbps Symmetrical Speed</li>
+                        <li><i class="fas fa-check-circle"></i> Unlimited Data</li>
+                        <li><i class="fas fa-check-circle"></i> Free Wi-Fi Router</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated Support Team</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary">Get a Quote</a>
+                </div>
             </div>
         </div>
+    </section>
 
-                  <!--<< Footer Section Start >>-->
-<footer class="footer-section section-bg-3">
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Enhance Your Experience with Add-ons</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <i class="fas fa-tv"></i>
+                    <h3>Pace IPTV</h3>
+                    <p>Access a wide range of local and international TV channels in stunning HD.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Fixed Line Voice</h3>
+                    <p>Add a crystal-clear fixed-line voice connection to your fiber plan.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Security Solutions</h3>
+                    <p>Secure your home with our IP camera and surveillance packages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Fiber Works: Get Connected in 3 Simple Steps</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>1. Check Availability</h4>
+                    <p>Contact us to confirm that Pace Fiber is available in your area.</p>
+                </div>
+                <div class="step-card">
+                    <i class="fas fa-box-open"></i>
+                    <h4>2. Choose Your Plan</h4>
+                    <p>Select a package that best fits your needs for speed and usage.</p>
+                </div>
+                <div class="step-card">
+                    <i class="fas fa-wifi"></i>
+                    <h4>3. Get Connected</h4>
+                    <p>Our team will install the service and you'll be online in no time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Are Saying</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-item">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"The internet speed is incredible! No more buffering when streaming movies or lag when gaming. Pace Fiber is a game-changer!"</p>
+                        <span class="testimonial-author">- Fahad Khan, Gamer</span>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"As a freelancer, a reliable connection is non-negotiable. Pace Fiber has been rock-solid, even during peak hours. Fantastic service."</p>
+                        <span class="testimonial-author">- Ayesha Ali, Freelancer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready for an Upgrade?</h2>
+            <p>Make the switch to the fastest, most reliable internet in Pakistan. Contact us to get started!</p>
+            <a href="coverage.html" class="btn btn-hero">Check Availability & Get Started</a>
+        </div>
+    </section>
+
+</body>
+
+
+
+ <footer class="footer-section section-bg-3">
     <div class="container">
         <div class="footer-widgets-wrapper">
             <div class="row">
@@ -783,9 +1202,7 @@ Call Center / IP Whitelisting</p></div>
         <script src="assets/js/wow.min.js"></script>
         <!--<< Circle Progress Js >>-->
         <script src="assets/js/circle-progress.js"></script>
-        <!--<< Ajax-Mail.js >>-->
-        <script src="assets/js/ajax-mail.js"></script>
-        <!--Main Js-->
+        <!--<< Main.js >>-->
         <script src="assets/js/main.js"></script>
     </body>
 </html>

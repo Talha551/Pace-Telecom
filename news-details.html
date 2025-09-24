@@ -155,7 +155,97 @@
         </div>
         <div class="offcanvas__overlay"></div>
 
-        <!-- Header Section Start -->
+         
+<style>
+ /* --- Mega Menu --- */
+     /* --- Mega Menu --- */
+.has-mega-menu {
+    position: relative;
+}
+
+.mega-menu {
+    /* Set a smaller, fixed width */
+    width: 600px; 
+    
+    /* Center the mega menu horizontally */
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* Other styling for transitions and appearance */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    
+    position: absolute;
+    top: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Adjust padding as needed */
+    z-index: 99;
+}
+    
+.has-mega-menu:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+}
+    
+.mega-menu-content {
+    display: flex;
+    padding: 20px;
+}
+
+.left-panel {
+    width: 250px;
+    border-right: 1px solid #ddd;
+    padding-right: 30px;
+}
+
+.left-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-panel li {
+    padding: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+}
+
+.left-panel li:hover, .left-panel li.active {
+    color: #007bff;
+}
+
+.right-panel {
+    flex-grow: 1;
+    padding-left: 30px;
+}
+
+.sub-menu-grid {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.sub-menu-grid.active {
+    /* Use flexbox with a column direction to stack items */
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; /* Adds space between the columns */
+}
+    
+.grid-item h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.grid-item p {
+    font-size: 14px;
+    color: #777;
+}
+    </style>
+           <!-- Header Section Start -->
         <header>
             <div class="header-tops-section fix">
                 <div class="container-fluid">
@@ -163,20 +253,20 @@
                         <ul class="contact-list">
                             <li>
                                 <i class="far fa-envelope"></i>
-                                <a href="mailto:info@example.com" class="link">info@example.com</a>
+                                <a href="mailto:info@pace-tel.com" class="link">info@pace-tel.com</a>
                             </li>
                             <li>
                                 <i class="fas fa-phone-alt"></i>
-                                <a href="tel:2086660112">+208-666-0112</a>
+                                <a href="tel:+92516045000">++92-51-604-5000</a>
                             </li>
                         </ul>
                         <div class="top-right">
                             <div class="social-icon d-flex align-items-center">
-                                <span>Follow Us:</span>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <!-- <span>Follow Us:</span> -->
+                                <!-- <a href="#"><i class="fab fa-facebook-f"></i></a> -->
+                                <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+                                <!-- <a href="#"><i class="fab fa-pinterest-p"></i></a> -->
+                                <!-- <a href="#"><i class="fab fa-youtube"></i></a> -->
                             </div>
                         </div>
                     </div>
@@ -193,122 +283,109 @@
                                     </a>
                                 </div>
                             </div>
+                            
                             <div class="header-right d-flex justify-content-end align-items-center">
                                 <div class="mean__menu-wrapper">
                                     <div class="main-menu">
                                         <nav id="mobile-menu">
                                             <ul>
                                                 <li class="has-dropdown active menu-thumb">
-                                                    <a href="index.html">
-                                                    Home 
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <!-- <ul class="submenu has-homemenu">
-                                                        <li class="border-none">
-                                                            <div class="row g-4">
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb">
-                                                                        <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index-one-page.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 01
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3  homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-2.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 02
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-3.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index-three-page.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 03
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-4.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-4.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index-four-page.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 04
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul> -->
-                                                </li>
-                                                <li class="has-dropdown active d-xl-none">
-                                                    <a href="team.html" class="border-none">
-                                                    Home
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <!-- <ul class="submenu">
-                                                        <li><a href="index.html">Home 01</a></li>
-                                                        <li><a href="index-2.html">Home 02</a></li>
-                                                        <li><a href="index-3.html">Home 03</a></li>
-                                                        <li><a href="index-4.html">Home 04</a></li>
-                                                    </ul> -->
+                                              
+                                                <li>
+                                                    <a href="index.html">Home</a>
                                                 </li>
                                                 <li>
                                                     <a href="about.html">About</a>
                                                 </li>
-                                                <li>
-                                                    <a href="service.html">Services</a>
-                                                </li>
-                                                <li>
-                                                    <a href="coverage.html">Pricing</a>
-                                                </li>
-                                                <li>
+                                        <li class="has-mega-menu">
+    <a href="service.html">Services <i class="fas fa-chevron-down"></i></a>
+    <div class="mega-menu">
+        <div class="container mega-menu-content">
+            <div class="left-panel">
+                <ul>
+                    <li class="active" data-target="internet-services">
+                        <a href="internet.html">
+                            <i class="fas fa-wifi"></i> Internet Services
+                        </a>
+                    </li>
+                    <li data-target="video">
+                        <a href="Telephone.html">
+                            <i class="fas fa-phone-alt"></i> Telephone
+                        </a>
+                    </li>
+                    <br>
+                    <li data-target="home-security">
+                        <a href="service.html">
+                            <i class="fas fa-tv"></i> CATV/IPTV
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-panel">
+                <div class="sub-menu-grid active" id="internet-services">
+                    <div class="grid-item"><h4> Value Added Services </h4><p>
+Bandwidth On Demand<br>
+Phone Application<br>
+Video On Demand<br>
+Call Forwarding to Mobile</p></div>
+                    <div class="grid-item"><h4>Other Services</h4><p> 
+
+Cloud PBX<br>
+Custom IVR<br>
+SIP Trunk<br>
+Call Center / IP Whitelisting</p></div>
+                </div>
+                <div class="sub-menu-grid" id="video">
+                    <div class="grid-item"><h4> Value Added Services </h4><p>
+Bandwidth On Demand<br>
+Phone Application<br>
+Video On Demand<br>
+Call Forwarding to Mobile</p></div>
+                    <div class="grid-item"><h4>Other Services</h4><p> 
+
+Cloud PBX<br>
+Custom IVR<br>
+SIP Trunk<br>
+Call Center / IP Whitelisting</p></div>
+                </div>
+                <div class="sub-menu-grid" id="home-security">
+                    <div class="grid-item"><h4> Value Added Services </h4><p>
+Bandwidth On Demand<br>
+Phone Application<br>
+Video On Demand<br>
+Call Forwarding to Mobile</p></div>
+                    <div class="grid-item"><h4>Other Services</h4><p> 
+
+Cloud PBX<br>
+Custom IVR<br>
+SIP Trunk<br>
+Call Center / IP Whitelisting</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+                    
+
+                                                <li class="has-dropdown">
+<a href="coverage.html">
+    Coverage  <i class="fas fa-angle-down"></i>
+  </a>
+  <!-- <ul class="submenu">
+    <li><a href="Islamabad">Islamabad</a></li>
+    <li><a href="punjab.html">Punjab</a></li>
+    <li><a href="sindh.html">Sindh</a></li>
+    <li><a href="balochistan.html">Balochistan</a></li>
+    <li><a href="kpk.html">KPK</a></li>
+  </ul> -->
+</li>
+
+                                                <!-- <li>
                                                     <a href="team.html">team</a>
                                                 </li>
                                                 <li>
                                                     <a href="news.html">Blog</a>
-                                                </li>
+                                                </li> -->
                                             </ul>
                                         </nav>
                                     </div>
@@ -370,6 +447,34 @@
                 </div>
             </div>
         </header>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const megaMenuTrigger = document.querySelector('.has-mega-menu');
+            const megaMenu = document.querySelector('.mega-menu');
+            const categories = document.querySelectorAll('.left-panel li');
+            const subMenus = document.querySelectorAll('.sub-menu-grid');
+            
+            // Show/Hide mega menu on hover
+            megaMenuTrigger.addEventListener('mouseenter', () => {
+                megaMenu.style.display = 'block';
+            });
+            megaMenuTrigger.addEventListener('mouseleave', () => {
+                megaMenu.style.display = 'none';
+            });
+
+            // Dynamic content change on hover for sub-menus
+            categories.forEach(category => {
+                category.addEventListener('mouseenter', function() {
+                    categories.forEach(c => c.classList.remove('active'));
+                    subMenus.forEach(s => s.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
         
         
         <!-- Search Area Start -->

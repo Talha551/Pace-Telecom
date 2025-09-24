@@ -157,7 +157,96 @@
 </div>
 <div class="offcanvas__overlay"></div>
 
-        <!-- Header Section Start -->
+<style>
+ /* --- Mega Menu --- */
+     /* --- Mega Menu --- */
+.has-mega-menu {
+    position: relative;
+}
+
+.mega-menu {
+    /* Set a smaller, fixed width */
+    width: 600px; 
+    
+    /* Center the mega menu horizontally */
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* Other styling for transitions and appearance */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    
+    position: absolute;
+    top: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Adjust padding as needed */
+    z-index: 99;
+}
+    
+.has-mega-menu:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+}
+    
+.mega-menu-content {
+    display: flex;
+    padding: 20px;
+}
+
+.left-panel {
+    width: 250px;
+    border-right: 1px solid #ddd;
+    padding-right: 30px;
+}
+
+.left-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-panel li {
+    padding: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+}
+
+.left-panel li:hover, .left-panel li.active {
+    color: #007bff;
+}
+
+.right-panel {
+    flex-grow: 1;
+    padding-left: 30px;
+}
+
+.sub-menu-grid {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.sub-menu-grid.active {
+    /* Use flexbox with a column direction to stack items */
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; /* Adds space between the columns */
+}
+    
+.grid-item h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.grid-item p {
+    font-size: 14px;
+    color: #777;
+}
+    </style>
+           <!-- Header Section Start -->
         <header>
             <div class="header-tops-section fix">
                 <div class="container-fluid">
@@ -195,116 +284,103 @@
                                     </a>
                                 </div>
                             </div>
+                            
                             <div class="header-right d-flex justify-content-end align-items-center">
                                 <div class="mean__menu-wrapper">
                                     <div class="main-menu">
                                         <nav id="mobile-menu">
                                             <ul>
                                                 <li class="has-dropdown active menu-thumb">
-                                                    <a href="index.html">
-                                                    Home 
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <!-- <ul class="submenu has-homemenu">
-                                                        <li class="border-none">
-                                                            <div class="row g-4">
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb">
-                                                                        <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index-one-page.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 01
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3  homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-2.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 02
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-3.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index-three-page.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 03
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-4.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-4.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index-four-page.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 04
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul> -->
-                                                </li>
-                                                <li class="has-dropdown active d-xl-none">
-                                                    <a href="index.html" class="border-none">
-                                                    Home
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <!-- <ul class="submenu">
-                                                        <li><a href="index.html">Home 01</a></li>
-                                                        <li><a href="index-2.html">Home 02</a></li>
-                                                        <li><a href="index-3.html">Home 03</a></li>
-                                                        <li><a href="index-4.html">Home 04</a></li>
-                                                    </ul> -->
+                                              
+                                                <li>
+                                                    <a href="index.html">Home</a>
                                                 </li>
                                                 <li>
                                                     <a href="about.html">About</a>
                                                 </li>
-                                                <li>
-                                                    <a href="service.html">Services</a>
-                                                </li>
-                                                <li>
-                                                    <a href="coverage.html">coverage</a>
-                                                </li>
+                                        <li class="has-mega-menu">
+    <a href="service.html">Services <i class="fas fa-chevron-down"></i></a>
+    <div class="mega-menu">
+        <div class="container mega-menu-content">
+            <div class="left-panel">
+                <ul>
+                    <li class="active" data-target="internet-services">
+                        <a href="internet.html">
+                            <i class="fas fa-wifi"></i> Internet Services
+                        </a>
+                    </li>
+                    <li data-target="video">
+                        <a href="telephone.html">
+                            <i class="fas fa-phone-alt"></i> Telephone
+                        </a>
+                    </li>
+                    <br>
+                    <li data-target="home-security">
+                        <a href="service.html">
+                            <i class="fas fa-tv"></i> CATV/IPTV
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-panel">
+                <div class="sub-menu-grid active" id="internet-services">
+                    <div class="grid-item"><h4> Value Added Services </h4><p>
+Bandwidth On Demand<br>
+Phone Application<br>
+Video On Demand<br>
+Call Forwarding to Mobile</p></div>
+                    <div class="grid-item"><h4>Other Services</h4><p> 
+
+Cloud PBX<br>
+Custom IVR<br>
+SIP Trunk<br>
+Call Center / IP Whitelisting</p></div>
+                </div>
+                <div class="sub-menu-grid" id="video">
+                    <div class="grid-item"><h4> Value Added Services </h4><p>
+Bandwidth On Demand<br>
+Phone Application<br>
+Video On Demand<br>
+Call Forwarding to Mobile</p></div>
+                    <div class="grid-item"><h4>Other Services</h4><p> 
+
+Cloud PBX<br>
+Custom IVR<br>
+SIP Trunk<br>
+Call Center / IP Whitelisting</p></div>
+                </div>
+                <div class="sub-menu-grid" id="home-security">
+                    <div class="grid-item"><h4> Value Added Services </h4><p>
+Bandwidth On Demand<br>
+Phone Application<br>
+Video On Demand<br>
+Call Forwarding to Mobile</p></div>
+                    <div class="grid-item"><h4>Other Services</h4><p> 
+
+Cloud PBX<br>
+Custom IVR<br>
+SIP Trunk<br>
+Call Center / IP Whitelisting</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+                    
+
+                                                <li class="has-dropdown">
+<a href="coverage.html">
+    Coverage  <i class="fas fa-angle-down"></i>
+  </a>
+  <!-- <ul class="submenu">
+    <li><a href="Islamabad">Islamabad</a></li>
+    <li><a href="punjab.html">Punjab</a></li>
+    <li><a href="sindh.html">Sindh</a></li>
+    <li><a href="balochistan.html">Balochistan</a></li>
+    <li><a href="kpk.html">KPK</a></li>
+  </ul> -->
+</li>
+
                                                 <!-- <li>
                                                     <a href="team.html">team</a>
                                                 </li>
@@ -372,6 +448,34 @@
                 </div>
             </div>
         </header>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const megaMenuTrigger = document.querySelector('.has-mega-menu');
+            const megaMenu = document.querySelector('.mega-menu');
+            const categories = document.querySelectorAll('.left-panel li');
+            const subMenus = document.querySelectorAll('.sub-menu-grid');
+            
+            // Show/Hide mega menu on hover
+            megaMenuTrigger.addEventListener('mouseenter', () => {
+                megaMenu.style.display = 'block';
+            });
+            megaMenuTrigger.addEventListener('mouseleave', () => {
+                megaMenu.style.display = 'none';
+            });
+
+            // Dynamic content change on hover for sub-menus
+            categories.forEach(category => {
+                category.addEventListener('mouseenter', function() {
+                    categories.forEach(c => c.classList.remove('active'));
+                    subMenus.forEach(s => s.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
         
         <!-- Search Area Start -->
         <div class="search-wrap">
@@ -387,84 +491,176 @@
             </div>
         </div>
 
+        <!-- hero section style -->
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 <style>
-  .hero-2 {
-    position: relative;
-    color: #fff;
-    min-height: 60vh; /* Reduced from full height */
-    padding: 80px 0;   /* Adjust vertical spacing */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #cceeff, #e6f7ff);
   }
 
-  .hero-2::before {
-    content: "";
+  .hero-boxed {
+    max-width: 1400px; /* Increase the width */
+    margin: 80px auto; /* Add more spacing around the section */
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    padding: 100px 60px; /* Increase padding for a larger section */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero-left {
+    flex: 1 1 600px; /* Increase the width of the text area */
+    padding-right: 50px; /* Add more spacing on the right */
+  }
+
+  .hero-left h5 {
+    font-size: 16px; /* Slightly larger subheading */
+    color: #007bff;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  .hero-left h1 {
+    font-size: 50px; /* Increase the main heading size */
+    color: #1e293b;
+    margin-bottom: 30px;
+    line-height: 1.4;
+  }
+
+  .hero-left h1 .highlight {
+    color: #007bff;
+    font-weight: bold;
+  }
+
+  .hero-left p {
+    font-size: 18px; /* Larger paragraph text */
+    color: #555;
+    margin-bottom: 40px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 20px; /* Increase spacing between buttons */
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .hero-buttons a {
+    padding: 16px 36px; /* Larger buttons */
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .hero-right {
+    flex: 1 1 500px; /* Adjust the image container size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flip-container {
+    perspective: 1200px; /* Increase perspective for a more dramatic flip effect */
+    width: 100%;
+    max-width: 450px; /* Increase the size of the flip box */
+    height: 350px; /* Increase height */
+  }
+
+  .flip-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+  }
+
+  .flip-box-inner {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    color: #fff;
+  .flip-box-front img,
+  .flip-box-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .hero-content * {
-    color: #fff !important;
+  .flip-box-front {
+    background-color: #fff;
+  }
+
+  .flip-box-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+  }
+
+  .flipped {
+    transform: rotateY(180deg);
+  }
+
+  @media (max-width: 768px) {
+    .hero-boxed {
+      flex-direction: column;
+      text-align: center;
+      padding: 60px 20px; /* Adjust padding for smaller screens */
+    }
+
+    .hero-left {
+      padding-right: 0;
+    }
+
+    .hero-buttons {
+      justify-content: center;
+    }
+
+    .flip-container {
+      margin-top: 30px;
+    }
   }
 </style>
-
-
-<section class="hero-section-2">
-  <div class="swiper-dot">
-    <div class="dot"></div>
+<!-- hero section -->
+<section class="hero-boxed">
+  <div class="hero-left">
+    <h5>TRIPLE PLAY • INTERNET • PHONE • IPTV</h5>
+    <h1>
+      Experience <span class="highlight">HD Voice & Fiber Internet</span> with Smart TV & Mobile App
+    </h1>
+    <p>
+      Enjoy blazing-fast internet, crystal-clear HD voice calls, and full HD IPTV—all powered by Pace Telecom’s GPON & WISP backbone. Connect via landline or mobile app, and make international calls at local rates.
+    </p>
+    <div class="hero-buttons">
+      <a href="plans.html" class="btn-primary">Explore Packages</a>
+      <a href="coverage.html" class="btn-outline">Check Availability</a>
+    </div>
+    <div class="hero-icons">
+      <div><i class="fas fa-phone-volume"></i> Free Pace-to-Pace HD Calls</div>
+      <div><i class="fas fa-mobile-alt"></i> Smartphone Integration</div>
+      <div><i class="fas fa-map-marker-alt"></i> Coverage in Islamabad, Peshawar, Mardan & More</div>
+    </div>
   </div>
-  <div class="swiper hero-slider-2">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="hero-2 bg-cover" style="background-image: url('assets/img/hero/hero3.png');">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="hero-content">
-                  <h1 data-animation="fadeInUp" data-delay="1.3s">
-                    Empowering Connectivity Across Pakistan
-                  </h1>
-                  <p data-animation="fadeInUp" data-delay="1.5s">
-                    High-Speed Internet + Seamless Coverage + Affordable Plans + Trusted Nationwide
-                  </p>
-                  <!-- <h2 data-animation="fadeInUp" data-delay="1.7s"><sub></sub></h2> -->
-                  <a href="#" class="theme-btn" data-animation="fadeInUp" data-delay="1.9s">
-                    <span>Join PACE TEL <i class="fas fa-chevron-right"></i></span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="swiper-slide">
-        <div class="hero-2 bg-cover" style="background-image: url('assets/img/hero/hero2.png');">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="hero-content">
-                  <h1 data-animation="fadeInUp" data-delay="1.3s">
-                    Your Digital Future Starts Here
-                  </h1>
-                  <p data-animation="fadeInUp" data-delay="1.5s">
-                    Fiber Optic + Wireless Broadband + Enterprise Solutions + 24/7 Support
-                  </p>
-                  <!-- <h2 data-animation="fadeInUp" data-delay="1.7s">Custom Plans Available</h2> -->
-                  <a href="#" class="theme-btn" data-animation="fadeInUp" data-delay="1.9s">
-                    <span>Explore Plans <i class="fas fa-chevron-right"></i></span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+  <div class="hero-right">
+    <div class="flip-container">
+      <div class="flip-box" id="autoFlip">
+        <div class="flip-box-inner flip-box-front">
+          <img src="assets/img/triple-play.png" alt="Triple Play Services" />
+        </div>
+        <div class="flip-box-inner flip-box-back">
+          <img src="assets/img/hero/hero3.png" alt="HD Voice & IPTV" />
         </div>
       </div>
     </div>
@@ -472,101 +668,89 @@
 </section>
 
 
+<script>
+  const flipBox = document.getElementById("autoFlip");
+  let flipped = false;
 
-       <!--<< Service Section Start >>--> 
+  setInterval(() => {
+    flipped = !flipped;
+    flipBox.classList.toggle("flipped", flipped);
+  }, 4000); // Flip every 4 seconds
+</script>
+
+
+
+
+
+
+<!--<< Service Section Start >>-->
 <section class="service-section-2 fix section-padding" id="service">
-    <div class="container">
-        <div class="section-title text-center">
-            <span class="wow fadeInUp">Our Core Services</span>  
-            <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                Seamless Connectivity & Digital Solutions <br>
-                Tailored for Every Need
-            </h2>  
-        </div>
-        <div class="row">
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                <div class="service-box-items">
-                    <div class="icon">
-                        <i class="flaticon-wifi-router-5"></i>
-                    </div>
-                    <div class="content">
-                        <h3>
-                            <a href="service-details.html">
-                                Broadband Internet
-                            </a>
-                        </h3>
-                        <p>
-                            Ultra-fast fiber and wireless broadband with nationwide coverage—ideal for homes, SMEs, and corporate clients.
-                        </p>
-                        <a href="service-details.html" class="arrow-icon">
-                            <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                <div class="service-box-items active">
-                    <div class="icon">
-                        <i class="flaticon-wi-fi"></i>
-                    </div>
-                    <div class="content">
-                        <h3>
-                            <a href="service-details.html">
-                                Wi-Fi Solutions
-                            </a>
-                        </h3>
-                        <p>
-                            Customized Wi-Fi setups for residential, commercial, and public environments—ensuring stable, secure access.
-                        </p>
-                        <a href="service-details.html" class="arrow-icon">
-                            <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                <div class="service-box-items">
-                    <div class="icon">
-                        <i class="flaticon-satellite-tv"></i>
-                    </div>
-                    <div class="content">
-                        <h3>
-                            <a href="service-details.html">
-                                IPTV & Digital TV
-                            </a>
-                        </h3>
-                        <p>
-                            Stream premium content with our IPTV service—featuring HD channels, on-demand entertainment, and smart integration.
-                        </p>
-                        <a href="service-details.html" class="arrow-icon">
-                            <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".9s">
-                <div class="service-box-items">
-                    <div class="icon">
-                        <i class="flaticon-tv-box"></i>
-                    </div>
-                    <div class="content">
-                        <h3>
-                            <a href="service-details.html">
-                                Smart TV Box
-                            </a>
-                        </h3>
-                        <p>
-                            Easy-to-use TV boxes preloaded with apps and streaming platforms—bringing smart entertainment to every screen.
-                        </p>
-                        <a href="service-details.html" class="arrow-icon">
-                            <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="section-title text-center">
+      <span class="wow fadeInUp">Our Core Services</span>
+      <h2 class="wow fadeInUp" data-wow-delay=".3s">
+        Triple Play Connectivity <br>
+        Internet • Voice • TV — All in One
+      </h2>
     </div>
+    <div class="row">
+      <!-- Box 1: Fiber Internet -->
+      <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+        <div class="service-box-items">
+          <div class="icon">
+            <img src="assets/img/web-link.png" alt="Fiber Internet Icon" style="width: 50px; height: 50px;">
+          </div>
+          <div class="content">
+            <h3><a href="fiber-internet.html">Fiber Internet</a></h3>
+            <p>
+              Ultra-fast FTTH & WISP broadband with GPON backbone. Unlimited data, zero downtime, and Wi-Fi 6 support.
+            </p>
+            <a href="fiber-internet.html" class="arrow-icon">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Box 2: IPTV -->
+      <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+        <div class="service-box-items">
+          <div class="icon">
+            <img src="assets/img/smart-tv.png" alt="IPTV Icon" style="width: 50px; height: 50px;">
+          </div>
+          <div class="content">
+            <h3><a href="iptv.html">IPTV</a></h3>
+            <p>
+              Full HD IPTV with local & international channels, video-on-demand, and smart TV compatibility.
+            </p>
+            <a href="iptv.html" class="arrow-icon">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Box 3: HD Voice & Telephony -->
+      <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+        <div class="service-box-items">
+          <div class="icon">
+            <img src="assets/img/call.png" alt="Telephone Icon" style="width: 50px; height: 50px;">
+          </div>
+          <div class="content">
+            <h3><a href="voice.html">HD Voice & Telephony</a></h3>
+            <p>
+              Free Pace-to-Pace HD calls, SIP trunking, mobile app integration, and international calling at local rates.
+            </p>
+            <a href="voice.html" class="arrow-icon">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
 
 
      <!--<< About Section Start >>--> 
@@ -709,159 +893,170 @@
             }
           </style>
           
-          <section class="choose-package-section bg-cover section-compact" style="background-image: url('assets/img/hero2.png');"> 
-            <div class="container">
-              <div class="choose-package-wrapper">
-                <div class="row g-4">
-                  <div class="col-lg-6">
-                    <div class="choose-package-content">
-                      <div class="section-title">
-                        <span class="wow fadeInUp">CHOOSE PACKAGE</span>
-                        <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                          Select the Right Connectivity Plan for Your Needs
-                        </h2>
-                      </div>
-                      <ul class="nav" role="tablist">
-                        <li class="nav-item wow fadeInUp" data-wow-delay=".3s" role="presentation">
-                          <a href="#tab-1" data-bs-toggle="tab" class="nav-link active" aria-selected="true" role="tab">
-                            Basic Plan – 10 Mbps
-                          </a>
-                        </li>
-                        <li class="nav-item wow fadeInUp" data-wow-delay=".5s" role="presentation">
-                          <a href="#tab-2" data-bs-toggle="tab" class="nav-link" aria-selected="false" role="tab">
-                            Standard Plan – 20 Mbps
-                          </a>
-                        </li>
-                        <li class="nav-item wow fadeInUp" data-wow-delay=".7s" role="presentation">
-                          <a href="#tab-3" data-bs-toggle="tab" class="nav-link" aria-selected="false" role="tab">
-                            Premium Plan – 30 Mbps
-                          </a>
-                        </li>
-                      </ul>
-                      <div class="tab-content">
-                        <div id="tab-1" class="tab-pane fade show active" role="tabpanel">
-                          <div class="choose-tab-price-items">
-                            <ul class="list wow fadeInUp" data-wow-delay=".7s">
-                              <li><i class="far fa-check"></i> Unlimited Data Usage</li>
-                              <li><i class="far fa-check"></i> 24/7 Customer Support</li>
-                              <li><i class="far fa-check"></i> Free Wi-Fi Router</li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div id="tab-2" class="tab-pane fade" role="tabpanel">
-                          <div class="choose-tab-price-items">
-                            <ul class="list">
-                              <li><i class="far fa-check"></i> High-Speed Streaming & Browsing</li>
-                              <li><i class="far fa-check"></i> Secure Network Access</li>
-                              <li><i class="far fa-check"></i> Free Technical Support</li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div id="tab-3" class="tab-pane fade" role="tabpanel">
-                          <div class="choose-tab-price-items">
-                            <ul class="list">
-                              <li><i class="far fa-check"></i> Enterprise-Grade Speed</li>
-                              <li><i class="far fa-check"></i> Priority Support & Maintenance</li>
-                              <li><i class="far fa-check"></i> Static IP Available</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Optional second column for image or pricing table -->
+          <section class="choose-package-section bg-cover section-compact" style="background-image: url('assets/img/hero2.png');">
+  <div class="container">
+    <div class="choose-package-wrapper">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="choose-package-content">
+            <div class="section-title">
+              <span class="wow fadeInUp">CHOOSE PACKAGE</span>
+              <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                Flexible Triple Play Plans for Home & Business
+              </h2>
+            </div>
+            <ul class="nav" role="tablist">
+              <li class="nav-item wow fadeInUp" data-wow-delay=".3s" role="presentation">
+                <a href="#tab-1" data-bs-toggle="tab" class="nav-link active" aria-selected="true" role="tab">
+                  Starter – 10 Mbps + Voice + IPTV
+                </a>
+              </li>
+              <li class="nav-item wow fadeInUp" data-wow-delay=".5s" role="presentation">
+                <a href="#tab-2" data-bs-toggle="tab" class="nav-link" aria-selected="false" role="tab">
+                  Smart – 20 Mbps + HD Voice + IPTV
+                </a>
+              </li>
+              <li class="nav-item wow fadeInUp" data-wow-delay=".7s" role="presentation">
+                <a href="#tab-3" data-bs-toggle="tab" class="nav-link" aria-selected="false" role="tab">
+                  Pro – 30 Mbps + Static IP + Priority Support
+                </a>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- Starter Plan -->
+              <div id="tab-1" class="tab-pane fade show active" role="tabpanel">
+                <div class="choose-tab-price-items">
+                  <ul class="list wow fadeInUp" data-wow-delay=".7s">
+                    <li><i class="far fa-check"></i> Unlimited Internet via GPON/WISP</li>
+                    <li><i class="far fa-check"></i> Free Pace-to-Pace HD Calling</li>
+                    <li><i class="far fa-check"></i> IPTV with HD Channels</li>
+                    <li><i class="far fa-check"></i> Free Wi-Fi Router</li>
+                  </ul>
                 </div>
               </div>
-            </div>   
-          </section>
+
+              <!-- Smart Plan -->
+              <div id="tab-2" class="tab-pane fade" role="tabpanel">
+                <div class="choose-tab-price-items">
+                  <ul class="list">
+                    <li><i class="far fa-check"></i> 20 Mbps Fiber Internet</li>
+                    <li><i class="far fa-check"></i> HD Voice with SIP Trunk Option</li>
+                    <li><i class="far fa-check"></i> IPTV with VOD Support</li>
+                    <li><i class="far fa-check"></i> 24/7 Technical Support</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Pro Plan -->
+              <div id="tab-3" class="tab-pane fade" role="tabpanel">
+                <div class="choose-tab-price-items">
+                  <ul class="list">
+                    <li><i class="far fa-check"></i> 30 Mbps Enterprise-Grade Speed</li>
+                    <li><i class="far fa-check"></i> Static IP & Custom IVR</li>
+                    <li><i class="far fa-check"></i> Priority Support & Maintenance</li>
+                    <li><i class="far fa-check"></i> Call Center / IP Whitelisting</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Optional second column for image or pricing table -->
+      </div>
+    </div>
+  </div>
+</section>
+
           
 
 
       <!--<< Service Section Start >>-->
 <section class="service-section fix section-padding section-bg-2">
-    <div class="left-shape">
-        <img src="assets/img/service/left-shape.png" alt="shape-img">
+  <div class="left-shape">
+    <img src="assets/img/service/left-shape.png" alt="shape-img">
+  </div>
+  <div class="right-shape">
+    <img src="assets/img/service/right-shape.png" alt="shape-img">
+  </div>
+  <div class="line-shape-2">
+    <img src="assets/img/service/line-shape-2.png" alt="shape-img">
+  </div>
+  <div class="container">
+    <div class="section-title text-center">
+      <span class="wow fadeInUp">Our Premium Services</span>
+      <h2 class="wow fadeInUp" data-wow-delay=".3s">
+        Enterprise Connectivity & Infrastructure <br>
+        Powered by Pace Telecom’s Nationwide Backbone
+      </h2>
     </div>
-    <div class="right-shape">
-        <img src="assets/img/service/right-shape.png" alt="shape-img">
-    </div>
-    <div class="line-shape-2">
-        <img src="assets/img/service/line-shape-2.png" alt="shape-img">
-    </div>
-    <div class="container">
-        <div class="section-title text-center">
-            <span class="wow fadeInUp">Our Premium Services</span>
-            <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                Connectivity & Infrastructure Solutions <br>
-                Trusted by Enterprises Nationwide
-            </h2>
+    <div class="service-wrapper-2">
+      <div class="row">
+        <!-- Box 1: GPON & WISP Backbone -->
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+          <div class="service-box-items-2">
+            <div class="icon">
+              <i class="flaticon-server"></i>
+            </div>
+            <div class="content">
+              <h3><a href="service-details.html">GPON & WISP Backbone</a></h3>
+              <p>
+                High-capacity fiber and wireless infrastructure enabling low-latency, scalable connectivity across Pakistan.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="service-wrapper-2">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                    <div class="service-box-items-2">
-                        <div class="icon">
-                            <i class="flaticon-server"></i>
-                        </div>
-                        <div class="content">
-                            <h3>
-                                <a href="service-details.html">Data Center Solutions</a>
-                            </h3>
-                            <p>
-                                Secure, scalable hosting and infrastructure services for enterprises, backed by robust network architecture.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="service-box-items-2 active">
-                        <div class="icon">
-                            <i class="flaticon-satellite-dish"></i>
-                        </div>
-                        <div class="content">
-                            <h3>
-                                <a href="service-details.html">VSAT & Satellite Connectivity</a>
-                            </h3>
-                            <p>
-                                Reliable satellite-based internet for remote and underserved regions, ensuring nationwide digital inclusion.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                    <div class="service-box-items-2">
-                        <div class="icon">
-                            <i class="flaticon-signal"></i>
-                        </div>
-                        <div class="content">
-                            <h3>
-                                <a href="service-details.html">Residential Internet</a>
-                            </h3>
-                            <p>
-                                High-speed fiber and wireless broadband for homes—designed for streaming, gaming, and remote work.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".9s">
-                    <div class="service-box-items-2">
-                        <div class="icon">
-                            <i class="flaticon-connection"></i>
-                        </div>
-                        <div class="content">
-                            <h3>
-                                <a href="service-details.html">Corporate Internet</a>
-                            </h3>
-                            <p>
-                                Enterprise-grade connectivity with dedicated bandwidth, static IPs, and managed IT support for businesses.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-           </div>
+
+        <!-- Box 2: SIP Trunk & Call Center -->
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+          <div class="service-box-items-2 active">
+            <div class="icon">
+              <i class="flaticon-satellite-dish"></i>
+            </div>
+            <div class="content">
+              <h3><a href="service-details.html">SIP Trunk & Call Center</a></h3>
+              <p>
+                Seamless voice integration with custom IVR, IP whitelisting, and call center-grade routing for enterprises.
+              </p>
+            </div>
+          </div>
         </div>
+
+        <!-- Box 3: Residential Fiber & IPTV -->
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+          <div class="service-box-items-2">
+            <div class="icon">
+              <i class="flaticon-signal"></i>
+            </div>
+            <div class="content">
+              <h3><a href="service-details.html">Residential Fiber & IPTV</a></h3>
+              <p>
+                Unlimited fiber internet with HD IPTV, free Pace-to-Pace calling, and Wi-Fi 6 support for homes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 4: Enterprise Internet & Static IP -->
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".9s">
+          <div class="service-box-items-2">
+            <div class="icon">
+              <i class="flaticon-connection"></i>
+            </div>
+            <div class="content">
+              <h3><a href="service-details.html">Enterprise Internet & IP</a></h3>
+              <p>
+                Dedicated bandwidth, static IPs, and managed support for businesses requiring secure, high-performance access.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+
 
 
         <!-- << Streaming Section Start >> -->
@@ -1060,7 +1255,7 @@
          -->
         <!--<< Team Section Start >>-->
 <!--<< Team Section Start >>-->
-<section class="team-section section-padding section-bg-3" id="team">
+<!-- <section class="team-section section-padding section-bg-3" id="team">
   <div class="container">
     <div class="section-title text-center">
       <span class="wow fadeInUp">Our Leadership Team</span>
@@ -1068,68 +1263,68 @@
         Meet the Visionaries Behind <br>
         PACE TEL's Success
       </h2>
-    </div>
+    </div> -->
 
     <!-- Centered Row with Equal Columns -->
-    <div class="row justify-content-center text-center">
+    <!-- <div class="row justify-content-center text-center"> -->
       <!-- Member 1 -->
-      <div class="col-md-4 wow fadeInUp" data-wow-delay=".3s">
+      <!-- <div class="col-md-4 wow fadeInUp" data-wow-delay=".3s">
         <div class="single-team-items style-2">
           <div class="team-image">
             <img src="assets/img/team/nasir.png" alt="Nasir Khan">
             <div class="social-profile">
-              <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
+              <span class="plus-btn"><i class="fas fa-share-alt"></i></span> -->
               <!-- <ul>
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
               </ul> -->
-            </div>
+            <!-- </div>
           </div>
           <div class="team-content">
             <h5><a href="team-details.html">Mr. Nasir Khan</a></h5>
             <p>Chairman / Founder</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Member 2 -->
-      <div class="col-md-4 wow fadeInUp" data-wow-delay=".5s">
+      <!-- <div class="col-md-4 wow fadeInUp" data-wow-delay=".5s">
         <div class="single-team-items style-2">
           <div class="team-image">
             <img src="assets/img/team/maqsood.png" alt="Maqsood Khan">
             <div class="social-profile">
-              <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
+              <span class="plus-btn"><i class="fas fa-share-alt"></i></span> -->
               <!-- <ul>
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
               </ul> -->
-            </div>
+            <!-- </div>
           </div>
           <div class="team-content">
             <h5><a href="team-details.html">Mr. Maqsood Khan</a></h5>
             <p>Managing Director</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Member 3 -->
-      <div class="col-md-4 wow fadeInUp" data-wow-delay=".7s">
+      <!-- <div class="col-md-4 wow fadeInUp" data-wow-delay=".7s">
         <div class="single-team-items style-2">
           <div class="team-image">
             <img src="assets/img/logo/PaceTelecom-logo.png" alt="PACE TEL Team">
             <div class="social-profile">
-              <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
+              <span class="plus-btn"><i class="fas fa-share-alt"></i></span> -->
               <!-- <ul>
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
               </ul> -->
-            </div>
+            <!-- </div>
           </div>
           <div class="team-content">
             <h5><a href="team-details.html">PACE TEL Team</a></h5>
@@ -1139,7 +1334,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 
@@ -1333,118 +1528,111 @@
 
        <!--<< Pricing Section Start >>--> 
 <section class="pricing-section-2 fix section-padding" id="pricing">
-    <div class="container">
-        <div class="section-title text-center mb-0">
-            <span class="wow fadeInUp">OUR PRICING PLAN</span>
-            <h2 class="wow fadeInUp" data-wow-delay=".3s">Our Pricing Plan</h2>
-        </div>
-        <div class="row pt-5">
-
-            <!-- Package 1: Fiber Internet + IPTV -->
-            <div class="pricing-wrapper wow fadeInUp" data-wow-delay=".3s">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-xxl-6 col-xl-6 col-lg-12">
-                        <div class="pricing-content-box d-flex align-items-center justify-content-between">
-                            <div class="price-content">
-                                <!-- <p>Installation Charge: PKR 3,000</p> -->
-                                <h3>Fiber Internet + IPTV</h3>
-                                <span><em>Inclusive of Taxes</em></span>
-                            </div>
-                            <div class="price-icon">
-                                <div class="icon"><i class="flaticon-television"></i></div>
-                                <div class="icon"><i class="flaticon-signal"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-5 col-xl-6 col-lg-12">
-                        <div class="pricing-list-items d-flex align-items-center">
-                            <ul class="price-list">
-                                <li><i class="far fa-check"></i> 50 Mbps High-Speed Internet</li>
-                                <li><i class="far fa-check"></i> IPTV with HD Channels</li>
-                                <li><i class="far fa-check"></i> Free Wi-Fi Router</li>
-                                <li><i class="far fa-check"></i> Unlimited Device Connectivity</li>
-                            </ul>
-                            <div class="price-button">
-                                <!-- PRICE DISPLAYED HERE -->
-                                <!-- <h3>PKR 2,500<span>/mo</span></h3> -->
-                                <a href="contact.html" class="theme-btn"><span>Get Started</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Package 2: Mobile Broadband + IPTV -->
-            <div class="pricing-wrapper active wow fadeInUp" data-wow-delay=".3s">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-xxl-6 col-xl-6 col-lg-12">
-                        <div class="pricing-content-box d-flex align-items-center justify-content-between">
-                            <div class="price-content">
-                                <!-- <p>Installation Charge: PKR 3,000</p> -->
-                                <h3>Mobile Broadband + IPTV</h3>
-                                <span><em>Inclusive of Taxes</em></span>
-                            </div>
-                            <div class="price-icon">
-                                <div class="icon"><i class="flaticon-television"></i></div>
-                                <div class="icon"><i class="flaticon-smartphone"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-5 col-xl-6 col-lg-12">
-                        <div class="pricing-list-items d-flex align-items-center">
-                            <ul class="price-list">
-                                <li><i class="far fa-check"></i> 50 Mbps Mobile Internet</li>
-                                <li><i class="far fa-check"></i> IPTV Streaming Access</li>
-                                <li><i class="far fa-check"></i> Multi-user Support</li>
-                                <li><i class="far fa-check"></i> Secure Wi-Fi Setup</li>
-                            </ul>
-                            <div class="price-button">
-                                <!-- PRICE DISPLAYED HERE -->
-                                <!-- <h3>PKR 3,500<span>/mo</span></h3> -->
-                                <a href="contact.html" class="theme-btn"><span>Get Started</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Package 3: VSAT + Voice -->
-            <div class="pricing-wrapper wow fadeInUp" data-wow-delay=".3s">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-xxl-6 col-xl-6 col-lg-12">
-                        <div class="pricing-content-box d-flex align-items-center justify-content-between">
-                            <div class="price-content">
-                                <!-- <p>Installation Charge: PKR 3,000</p> -->
-                                <h3>VSAT + Voice Services</h3>
-                                <span><em>Inclusive of Taxes</em></span>
-                            </div>
-                            <div class="price-icon">
-                                <div class="icon"><i class="flaticon-satellite-tv"></i></div>
-                                <div class="icon"><i class="flaticon-smartphone"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-5 col-xl-6 col-lg-12">
-                        <div class="pricing-list-items d-flex align-items-center">
-                            <ul class="price-list">
-                                <li><i class="far fa-check"></i> Satellite Internet Access</li>
-                                <li><i class="far fa-check"></i> Voice Calling Services</li>
-                                <li><i class="far fa-check"></i> Rural & Remote Coverage</li>
-                                <li><i class="far fa-check"></i> 24/7 Technical Support</li>
-                            </ul>
-                            <div class="price-button">
-                                <!-- PRICE DISPLAYED HERE -->
-                                <!-- <h3>PKR 5,000<span>/mo</span></h3> -->
-                                <a href="contact.html" class="theme-btn"><span>Get Started</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+  <div class="container">
+    <div class="section-title text-center mb-0">
+      <span class="wow fadeInUp">OUR PRICING PLAN</span>
+      <h2 class="wow fadeInUp" data-wow-delay=".3s">Affordable Packages for Every Need</h2>
     </div>
+
+    <div class="row pt-5">
+
+      <!-- Package 1: Fiber Internet + IPTV -->
+      <div class="pricing-wrapper wow fadeInUp" data-wow-delay=".3s">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-xxl-6 col-xl-6 col-lg-12">
+            <div class="pricing-content-box d-flex align-items-center justify-content-between">
+              <div class="price-content">
+                <h3>Fiber Internet + IPTV</h3>
+                <span><em>Inclusive of Taxes</em></span>
+              </div>
+              <div class="price-icon">
+                <div class="icon"><i class="flaticon-television"></i></div>
+                <div class="icon"><i class="flaticon-signal"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-5 col-xl-6 col-lg-12">
+            <div class="pricing-list-items d-flex align-items-center">
+              <ul class="price-list">
+                <li><i class="far fa-check"></i> 50 Mbps Fiber Internet</li>
+                <li><i class="far fa-check"></i> IPTV with HD Channels</li>
+                <li><i class="far fa-check"></i> Free Wi-Fi Router</li>
+                <li><i class="far fa-check"></i> Unlimited Device Connectivity</li>
+              </ul>
+              <div class="price-button">
+                <a href="contact.html" class="theme-btn"><span>Get Started</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Package 2: Fiber Internet + Voice -->
+      <div class="pricing-wrapper wow fadeInUp" data-wow-delay=".5s">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-xxl-6 col-xl-6 col-lg-12">
+            <div class="pricing-content-box d-flex align-items-center justify-content-between">
+              <div class="price-content">
+                <h3>Fiber Internet + Voice</h3>
+                <span><em>Inclusive of Taxes</em></span>
+              </div>
+              <div class="price-icon">
+                <div class="icon"><i class="flaticon-call"></i></div>
+                <div class="icon"><i class="flaticon-signal"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-5 col-xl-6 col-lg-12">
+            <div class="pricing-list-items d-flex align-items-center">
+              <ul class="price-list">
+                <li><i class="far fa-check"></i> 30 Mbps Fiber Internet</li>
+                <li><i class="far fa-check"></i> Free Pace-to-Pace HD Calling</li>
+                <li><i class="far fa-check"></i> SIP Trunk & Custom IVR</li>
+                <li><i class="far fa-check"></i> Static IP Available</li>
+              </ul>
+              <div class="price-button">
+                <a href="contact.html" class="theme-btn"><span>Get Started</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Package 3: VSAT + Voice -->
+      <div class="pricing-wrapper wow fadeInUp" data-wow-delay=".7s">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-xxl-6 col-xl-6 col-lg-12">
+            <div class="pricing-content-box d-flex align-items-center justify-content-between">
+              <div class="price-content">
+                <h3>VSAT + Voice Services</h3>
+                <span><em>Inclusive of Taxes</em></span>
+              </div>
+              <div class="price-icon">
+                <div class="icon"><i class="flaticon-satellite-tv"></i></div>
+                <div class="icon"><i class="flaticon-call"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-5 col-xl-6 col-lg-12">
+            <div class="pricing-list-items d-flex align-items-center">
+              <ul class="price-list">
+                <li><i class="far fa-check"></i> Satellite Internet Access</li>
+                <li><i class="far fa-check"></i> Voice Calling Services</li>
+                <li><i class="far fa-check"></i> Rural & Remote Coverage</li>
+                <li><i class="far fa-check"></i> 24/7 Technical Support</li>
+              </ul>
+              <div class="price-button">
+                <a href="contact.html" class="theme-btn"><span>Get Started</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
 
 
        <!--<< Faq Section Start >>--> 
