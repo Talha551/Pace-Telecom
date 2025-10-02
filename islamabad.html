@@ -583,241 +583,459 @@ Call Center / IP Whitelisting</p></div>
                 </div>
             </div>
         </div>
-        <!--<< Breadcrumb Section Start >>-->
-        <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('assets/img/banner/fixed.png');">
-            <div class="container">
-                <div class="page-heading">
-                    <h1 class="wow fadeInUp" data-wow-delay=".3s">Our Coverage</h1>
-                    <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                        <li>
-                            <a href="index.html">
-                            Home Page
-                            </a>
-                        </li>
-                        <li>
-                            <i class="fal fa-minus"></i>
-                        </li>
-                        <li>
-                            Coverage
-                        </li>
-                    </ul>
+  <!-- Leaflet CSS (required for map styling) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Custom CSS (Stacked Layout, Background Image, & Light Theme) -->
+    <style>
+        /* --- Light Theme Palette --- */
+        :root {
+            --light-bg: #f8f8f8; /* Light gray base */
+            --card-bg: #ffffff; /* White card background */
+            --primary-green: #2ecc71; /* Primary Green (Success/Service) - Brighter for light theme */
+            --primary-blue: #3498db; /* Primary Blue (Accent/Corporate) */
+            --text-dark: #2c3e50; /* Dark text (Navy/Slate) */
+            --text-light: #f4f4f4; /* Used for text over dark elements */
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --border-color: rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: var(--font-main);
+            margin: 0;
+            /* Default light background for the entire app */
+            background-color: var(--light-bg); 
+            color: var(--text-dark); /* Default text is dark */
+            overflow-x: hidden; 
+        }
+        
+        /* --- TOP SECTION: Locator (Dropdown + Details) with BG Image --- */
+        .locator-section {
+            /* Adjusted padding now that the fixed navbar is removed */
+            padding-top: 50px; 
+            padding-bottom: 40px;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            /* Background Image for the Dropdown Section */
+            background-image: url('assets/img/banner/fixed.png'); 
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+            
+            /* Light Overlay for readability against the background image */
+            box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Card containing the dropdown and details (Now White) */
+        .locator-details-card {
+            z-index: 500;
+            width: 95%;
+            max-width: 1100px;
+            padding: 30px;
+            background-color: var(--card-bg); 
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Lighter shadow */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        @media (min-width: 850px) {
+            .locator-details-card {
+                flex-direction: row;
+            }
+        }
+
+        /* Inner Panels (Now Light Gray) */
+        .lookup-panel, .details-panel {
+            flex: 1;
+            padding: 20px;
+            border-radius: 8px;
+            background: var(--light-bg); /* Light gray background */
+            border: 1px solid var(--border-color);
+        }
+        .lookup-panel {
+            text-align: center;
+        }
+
+        /* --- BOTTOM SECTION: Map (Now White/Light) --- */
+        .map-section {
+            background-color: var(--card-bg); 
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .map-section h2 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        #coverage-map {
+            width: 100%;
+            max-width: 1100px;
+            height: 600px;
+            margin: 0 auto;
+            border-radius: 12px;
+            filter: grayscale(0%) brightness(100%); /* Reset filter for light map */
+            border: 3px solid var(--primary-green);
+        }
+
+        /* Dropdown & Details Styling */
+        .select-group h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+        
+        #office-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--primary-blue);
+            border-radius: 6px;
+            font-size: 1rem;
+            color: var(--text-dark); /* Keep dark text */
+            background-color: var(--card-bg); /* White background for dropdown */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            appearance: none;
+            /* Use a dark icon for the dropdown arrow */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23333333"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 1em;
+            cursor: pointer;
+        }
+
+        .details-panel h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--primary-green);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 10px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .detail-item i {
+            color: var(--primary-green);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        .detail-item p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+            color: var(--text-dark);
+        }
+        .detail-item strong {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            opacity: 0.7;
+            margin-bottom: 2px;
+        }
+        .default-text {
+            text-align: center;
+            padding: 40px 10px;
+            color: var(--text-dark);
+            opacity: 0.6;
+        }
+        
+        /* Leaflet Popups (must be light now) */
+        .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+            background: var(--card-bg) !important;
+            color: var(--text-dark) !important;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.2) !important;
+        }
+    </style>
+
+
+    <!-- ========================================================= -->
+    <!-- TOP SECTION: LOCATOR CARD (with Background Image) -->
+    <!-- ========================================================= -->
+    <div class="locator-section">
+        
+        <div class="locator-details-card">
+            
+            <!-- 1. Office Selection Panel -->
+            <div class="lookup-panel">
+                <div class="select-group">
+                    <h3>Find Your Nearest pace Office in the Islamabad / Rawalpindi Region</h3>
+                    <select id="office-select" onchange="showOfficeDetails(this.value)">
+                        <option value="" selected disabled>-- Select a City/Office in the Region --</option>
+                    </select>
                 </div>
             </div>
-        </div>
 
-         <section class="coverage-section section-padding">
-    <div class="container">
-        <div class="section-title text-center">
-            <span class="wow fadeInUp">Nationwide Reach</span>
-            <h2 class="wow fadeInUp" data-wow-delay=".3s">PACE TEL Coverage Areas</h2>
-            <p class="mt-3">We proudly serve communities across Pakistan with high-speed internet, telecom, and IT infrastructure solutions.</p>
-        </div>
-
-
-
-
-
-        
-        <!-- Area List -->
-        <section class="area-contact-table section-padding">
-            <div class="container">
-              <div class="section-title text-center">
-                <h2>PACE TEL Service Areas</h2>
-                <p>Find your local representative for support and service inquiries.</p>
-              </div>
-          
-              <!-- Khyber Pakhtunkhwa -->
-              <h4 class="mt-4">Khyber Pakhtunkhwa</h4>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Area</th>
-                    <th>Concerned Person</th>
-                    <th>Contact Number</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Mardan</td><td></td><td></td></tr>
-                  <tr><td>Peshawar</td><td></td><td></td></tr>
-                  <tr><td>Bannu</td><td></td><td></td></tr>
-                  <tr><td>Landi Kotal</td><td></td><td></td></tr>
-                  <tr><td>DI Khan</td><td></td><td></td></tr>
-                  <tr><td>Lachi</td><td></td><td></td></tr>
-                  <tr><td>Shehbaz Khel</td><td></td><td></td></tr>
-                </tbody>
-              </table>
-          
-              <!-- Balochistan -->
-              <h4 class="mt-4">Balochistan</h4>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Area</th>
-                    <th>Concerned Person</th>
-                    <th>Contact Number</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Quetta</td><td></td><td></td></tr>
-                  <tr><td>Chaman</td><td></td><td></td></tr>
-                </tbody>
-              </table>
-          
-              <!-- Punjab -->
-              <h4 class="mt-4">Punjab</h4>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Area</th>
-                    <th>Concerned Person</th>
-                    <th>Contact Number</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Lahore</td><td></td><td></td></tr>
-                  <tr><td>Jhelum</td><td></td><td></td></tr>
-                  <tr><td>Gujrat</td><td></td><td></td></tr>
-                  <tr><td>Faisalabad</td><td></td><td></td></tr>
-                  <tr><td>Gujranwala</td><td></td><td></td></tr>
-                  <tr><td>Sialkot</td><td></td><td></td></tr>
-                  <tr><td>Okara</td><td></td><td></td></tr>
-                  <tr><td>Sahiwal</td><td></td><td></td></tr>
-                  <tr><td>Multan</td><td></td><td></td></tr>
-                  <tr><td>Bahawalpur</td><td></td><td></td></tr>
-                  <tr><td>Rahimyar Khan</td><td></td><td></td></tr>
-                  <tr><td>DG Khan</td><td></td><td></td></tr>
-                  <tr><td>Jhang</td><td></td><td></td></tr>
-                  <tr><td>Talagang</td><td></td><td></td></tr>
-                  <tr><td>Mandi Bahauddin</td><td></td><td></td></tr>
-                  <tr><td>Morekhunda</td><td></td><td></td></tr>
-                  <tr><td>Mian Chunnu</td><td></td><td></td></tr>
-                  <tr><td>Liaqatpur</td><td></td><td></td></tr>
-                  <tr><td>Rojha</td><td></td><td></td></tr>
-                  <tr><td>Fazilpur</td><td></td><td></td></tr>
-                  <tr><td>Kalari</td><td></td><td></td></tr>
-                  <tr><td>Bhaipheru</td><td></td><td></td></tr>
-                </tbody>
-              </table>
-          
-              <!-- Sindh -->
-              <h4 class="mt-4">Sindh</h4>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Area</th>
-                    <th>Concerned Person</th>
-                    <th>Contact Number</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Nawabshah</td><td></td><td></td></tr>
-                  <tr><td>Hyderabad</td><td></td><td></td></tr>
-                  <tr><td>Dadu</td><td></td><td></td></tr>
-                  <tr><td>Larkana</td><td></td><td></td></tr>
-                  <tr><td>Shikarpur</td><td></td><td></td></tr>
-                  <tr><td>Sukkur</td><td></td><td></td></tr>
-                  <tr><td>Karachi</td><td></td><td></td></tr>
-                  <tr><td>Thal</td><td></td><td></td></tr>
-                  <tr><td>Dherki</td><td></td><td></td></tr>
-                  <tr><td>Khandhkot</td><td></td><td></td></tr>
-                  <tr><td>Ranipur</td><td></td><td></td></tr>
-                  <tr><td>Morror</td><td></td><td></td></tr>
-                  <tr><td>Thatta</td><td></td><td></td></tr>
-                  <tr><td>Nooriabad</td><td></td><td></td></tr>
-                  <tr><td>Jamshoro</td><td></td><td></td></tr>
-                </tbody>
-              </table>
+            <!-- 2. Office Details Display Panel -->
+            <div class="details-panel">
+                <div id="office-details-container">
+                    <div class="default-text">
+                        <i class="fas fa-map-marker-alt fa-3x" style="margin-bottom: 15px;"></i>
+                        <p>Select an office from the dropdown to view its exact location, address, and contact details.</p>
+                    </div>
+                </div>
             </div>
-          </section>
-          
-          
-
-        <!-- Map -->
-        <div class="map-wrapper mt-5">
-            <h3 class="text-center mb-4">Interactive Coverage Map</h3>
-            <div id="coverage-map" style="height: 500px; width: 100%;"></div>
+            
         </div>
     </div>
-</section>
-<script>
-function initMap() {
-    const map = new google.maps.Map(document.getElementById("coverage-map"), {
-        zoom: 6,
-        center: { lat: 30.3753, lng: 69.3451 }, // Center of Pakistan
-    });
 
-    const locations = [
-  { name: "Mardan", lat: 34.1989, lng: 72.0408 },
-  { name: "Peshawar", lat: 34.0151, lng: 71.5249 },
-  { name: "Bannu", lat: 32.9855, lng: 70.6026 },
-  { name: "Landi Kotal", lat: 34.0972, lng: 71.1458 },
-  { name: "DI Khan", lat: 31.8317, lng: 70.9017 },
-  { name: "Lachi", lat: 33.3833, lng: 71.3333 },
-  { name: "Shehbaz Khel", lat: 32.6167, lng: 71.5333 },
-  { name: "Quetta", lat: 30.1798, lng: 66.9750 },
-  { name: "Chaman", lat: 30.9210, lng: 66.4519 },
-  { name: "Lahore", lat: 31.5497, lng: 74.3436 },
-  { name: "Jhelum", lat: 32.9331, lng: 73.7333 },
-  { name: "Gujrat", lat: 32.5742, lng: 74.0754 },
-  { name: "Faisalabad", lat: 31.4504, lng: 73.1350 },
-  { name: "Gujranwala", lat: 32.1877, lng: 74.1945 },
-  { name: "Sialkot", lat: 32.4945, lng: 74.5229 },
-  { name: "Okara", lat: 30.8081, lng: 73.4458 },
-  { name: "Sahiwal", lat: 30.6700, lng: 73.1060 },
-  { name: "Multan", lat: 30.1575, lng: 71.5249 },
-  { name: "Bahawalpur", lat: 29.3956, lng: 71.6836 },
-  { name: "Rahimyar Khan", lat: 28.4195, lng: 70.2952 },
-  { name: "DG Khan", lat: 30.0459, lng: 70.6403 },
-  { name: "Jhang", lat: 31.2748, lng: 72.3119 },
-  { name: "Talagang", lat: 32.9333, lng: 72.4167 },
-  { name: "Mandi Bahauddin", lat: 32.5836, lng: 73.4845 },
-  { name: "Morekhunda", lat: 31.1500, lng: 73.8667 },
-  { name: "Mian Chunnu", lat: 30.4500, lng: 72.6000 },
-  { name: "Liaqatpur", lat: 28.8500, lng: 70.9667 },
-  { name: "Rojha", lat: 31.6000, lng: 73.2000 },
-  { name: "Fazilpur", lat: 30.4167, lng: 70.7500 },
-  { name: "Kalari", lat: 31.0000, lng: 73.0000 },
-  { name: "Bhaipheru", lat: 31.2000, lng: 73.0000 },
-  { name: "Nawabshah", lat: 26.2483, lng: 68.4096 },
-  { name: "Hyderabad", lat: 25.3969, lng: 68.3578 },
-  { name: "Dadu", lat: 26.7303, lng: 67.7766 },
-  { name: "Larkana", lat: 27.5609, lng: 68.2141 },
-  { name: "Shikarpur", lat: 27.9571, lng: 68.6382 },
-  { name: "Sukkur", lat: 27.7052, lng: 68.8574 },
-  { name: "Karachi", lat: 24.8607, lng: 67.0011 },
-  { name: "Thal", lat: 31.0000, lng: 71.0000 },
-  { name: "Dherki", lat: 28.0333, lng: 69.7667 },
-  { name: "Khandhkot", lat: 28.4000, lng: 69.3000 },
-  { name: "Ranipur", lat: 27.2874, lng: 68.5062 },
-  { name: "Morror", lat: 27.0000, lng: 68.0000 },
-  { name: "Thatta", lat: 24.7473, lng: 67.9235 },
-  { name: "Nooriabad", lat: 25.2000, lng: 67.7333 },
-  { name: "Jamshoro", lat: 25.4283, lng: 68.2820 }
-];
+    <!-- ========================================================= -->
+    <!-- BOTTOM SECTION: MAP -->
+    <!-- ========================================================= -->
+    <div class="map-section">
+        <h2>Office Location Map</h2>
+        <!-- 3. Main Map Display Area -->
+        <div id="coverage-map"></div>
+    </div>
 
 
-    locations.forEach(loc => {
-        const marker = new google.maps.Marker({
-            position: { lat: loc.lat, lng: loc.lng },
-            map: map,
-            title: loc.name,
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <script>
+        
+        // --- 1. Map Data and Setup ---
+
+        // NEW CENTER: Rawalpindi/Islamabad Twin Cities Area
+        const MAP_DEFAULT_CENTER = [33.6844, 73.0479]; 
+        // NEW ZOOM: Zoomed in for regional view
+        const MAP_DEFAULT_ZOOM = 10; 
+
+        // ----------------------------------------------------------------------
+        // START: OFFICE DATA CONFIGURATION (ONLY ISLAMABAD/RAWALPINDI)
+        // ----------------------------------------------------------------------
+        const OFFICE_DATA = {
+            // --- ISLAMABAD OFFICES (MOCK DATA) ---
+            'isb-f7-markaz': {
+                city: 'Islamabad',
+                name: "F-7 Markaz Office (Main)",
+                contact: "051-1234567",
+                address: "Office 1, F-7 Markaz (Jinnah Super), Islamabad",
+                location: [33.7088, 73.0762] // F-7 Jinnah Super
+            },
+            'isb-g10-center': {
+                city: 'Islamabad',
+                name: "G-10 Commercial Center",
+                contact: "051-9876543",
+                address: "Shop 34, G-10/4, Islamabad",
+                location: [33.6660, 72.9900] // G-10 Markaz
+            },
+            // --- NEW ISLAMABAD OFFICES ---
+            'isb-bani-gala': {
+                city: 'Islamabad',
+                name: "Bani Gala Office",
+                contact: "051-5551112",
+                address: "Main Bani Gala Road, near Lake View Park, Islamabad",
+                location: [33.7220, 73.1360] // Bani Gala
+            },
+            'isb-tramiri': {
+                city: 'Islamabad',
+                name: "Tramiri Office (Expressway)",
+                contact: "051-4443332",
+                address: "Office near Tramiri Chowk, Islamabad Expressway",
+                location: [33.5930, 73.1300] // Tramiri Chowk
+            },
+            // --- RAWALPINDI OFFICES (KEPT FROM ORIGINAL) ---
+            'rwp-marir-chowk': {
+                city: 'Rawalpindi',
+                name: "Marir Chowk Office",
+                contact: "0300-1002999",
+                address: "P D C Bus Stop, Near Marir Chowk, Rawalpindi",
+                location: [33.6150, 73.0470] 
+            },
+            'rwp-r-a-bazar': {
+                city: 'Rawalpindi',
+                name: "R A Bazar Office",
+                contact: "0301-8555433",
+                address: "Office at R A Bazar, Rawalpindi",
+                location: [33.6067, 73.0400] 
+            },
+            'rwp-bahria-town': {
+                city: 'Rawalpindi',
+                name: "Bahria Town Office (Phase 8)",
+                contact: "0306-9915555",
+                address: "Office at Bahria Town, Phase 8, Rawalpindi",
+                location: [33.5133, 73.0760] 
+            },
+            'rwp-kainchi-chowk': {
+                city: 'Rawalpindi',
+                name: "Kainchi Chowk Office",
+                contact: "0331-9944311",
+                address: "Office at Kainchi Chowk, Rawalpindi",
+                location: [33.5600, 73.0000] 
+            }
+        };
+        // ----------------------------------------------------------------------
+        // END: OFFICE DATA CONFIGURATION
+        // ----------------------------------------------------------------------
+
+        let map;
+        let currentMarker = null;
+
+        // Custom Icon Factory (Blue circle marker)
+        const createCustomIcon = (colorHex) => {
+            return L.divIcon({
+                className: 'custom-div-icon',
+                html: `<div style="background-color: ${colorHex}; width: 20px; height: 20px; border-radius: 50%; border: 4px solid white; box-shadow: 0 0 10px ${colorHex};"></div>`,
+                iconSize: [28, 28],
+                iconAnchor: [14, 14]
+            });
+        };
+
+        // Initialize the map inside the onload function
+        function initializeMap() {
+            // Check if map container exists
+            const mapContainer = document.getElementById('coverage-map');
+            if (!mapContainer) return;
+            
+            // Check if map is already initialized
+            if (map) {
+                map.remove();
+            }
+
+            map = L.map('coverage-map').setView(MAP_DEFAULT_CENTER, MAP_DEFAULT_ZOOM);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            // Invalidate size is critical when a map is initially hidden or its container size changes dynamically
+            setTimeout(() => {
+                if (map) {
+                    map.invalidateSize();
+                }
+            }, 200);
+        }
+
+
+        // --- 2. Office Selection Logic ---
+        
+        window.showOfficeDetails = function(officeKey) {
+            if (!officeKey) return;
+
+            const office = OFFICE_DATA[officeKey];
+            const detailsContainer = document.getElementById('office-details-container');
+
+            // 1. Update Details Panel
+            detailsContainer.innerHTML = `
+                <h3><i class="fas fa-building"></i> ${office.city} Office</h3>
+                
+                <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Office Name & Location</strong>
+                        <p>${office.name}</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Contact Number</strong>
+                        <p>${office.contact}</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-location-arrow"></i>
+                    <div>
+                        <strong>Full Address</strong>
+                        <p>${office.address}</p>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <strong>Coordinates</strong>
+                        <p>Lat: ${office.location[0].toFixed(4)}, Lng: ${office.location[1].toFixed(4)}</p>
+                    </div>
+                </div>
+            `;
+
+            // 2. Update Map
+            if (currentMarker) {
+                map.removeLayer(currentMarker);
+            }
+            
+            // Ensure the map is correctly sized before adding marker
+            if (map) {
+                map.invalidateSize();
+            }
+
+            const icon = createCustomIcon('#3498db'); // Use blue for the marker
+            currentMarker = L.marker(office.location, {
+                icon: icon
+            }).bindPopup(`<b>${office.name}</b>`).addTo(map).openPopup();
+
+            // Center and zoom to the new location
+            map.flyTo(office.location, 14); 
+        }
+
+        // --- 3. Initial Load ---
+        function populateDropdown() {
+            const select = document.getElementById('office-select');
+            
+            // Group offices by city for better UI experience
+            const cityGroups = {};
+            for (const key in OFFICE_DATA) {
+                const office = OFFICE_DATA[key];
+                if (!cityGroups[office.city]) {
+                    cityGroups[office.city] = [];
+                }
+                cityGroups[office.city].push({key, name: office.name});
+            }
+            
+            // Sort cities alphabetically
+            const sortedCities = Object.keys(cityGroups).sort();
+
+            sortedCities.forEach(city => {
+                const optgroup = document.createElement('optgroup');
+                optgroup.label = city;
+                cityGroups[city].forEach(office => {
+                    const option = document.createElement('option');
+                    option.value = office.key;
+                    option.textContent = office.name;
+                    optgroup.appendChild(option);
+                });
+                select.appendChild(optgroup);
+            });
+        }
+
+        // Initialize map and dropdown when the page content is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeMap();
+            populateDropdown();
         });
 
-        const infoWindow = new google.maps.InfoWindow({
-            content: `<strong>${loc.name}</strong><br>Service Available`,
-        });
-
-        marker.addListener("click", () => {
-            infoWindow.open(map, marker);
-        });
-    });
-}
-</script>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao&libraries=places&callback=initMap"></script>
+    </script>
 
 
-           <!--<< Footer Section Start >>-->
+
+
+
+
+
+
+
+
+
+
+             <!--<< Footer Section Start >>-->
 <footer class="footer-section section-bg-3">
     <div class="container">
         <div class="footer-widgets-wrapper">
@@ -835,7 +1053,7 @@ function initMap() {
                                 PACE TEL is a full-service telecom and broadcasting company, delivering end-to-end connectivity across Pakistan.
                             </p>
                             <span>Interested in working with us?</span> <br>
-                            <a href="mailto:info@pace-tel.com" class="link">info@pace-tel.com</a>
+                            <a href="mailto:coo@pace-tel.com" class="link">coo@pace-tel.com</a>
                             <div class="social-icon d-flex align-items-center">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -942,7 +1160,8 @@ function initMap() {
     </div>
 </footer>
 
-         <!--<< All JS Plugins >>-->
+
+        <!--<< All JS Plugins >>-->
         <script src="assets/js/jquery-3.7.1.min.js"></script>
         <!--<< Viewport Js >>-->
         <script src="assets/js/viewport.jquery.js"></script>
